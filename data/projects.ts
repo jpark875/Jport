@@ -23,7 +23,7 @@ export const projects: Project[] = [
     tags: ["Python", "Pydantic", "SQLAlchemy", "Streamlit", "Anthropic API"],
     tests: 255,
     repo: github("FitTest"),
-    isPublic: false,
+    isPublic: true,
   },
   {
     name: "SportsBetter",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     tags: ["Python", "OpenCV", "Pydantic", "openpyxl", "Vision API"],
     tests: 111,
     repo: github("SportsTaxer"),
-    isPublic: false,
+    isPublic: true,
   },
   {
     name: "FormPro2",
