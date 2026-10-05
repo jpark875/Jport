@@ -9,7 +9,7 @@ export default function Projects() {
           Projects
         </h2>
         <p className="mt-3 text-sm leading-7 text-[#94A3B8] lg:sticky lg:top-20">
-          Six repositories, each runnable from a fresh clone.
+          {projects.length} repositories, each runnable from a fresh clone.
         </p>
       </div>
       <div className="space-y-6">

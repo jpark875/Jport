@@ -1,7 +1,9 @@
+import { site } from "@/data/site";
+
 const focus = [
   "Data pipelines and the models that sit on them",
+  "Applied econometrics on public health and income data",
   "Analytics tooling with tests behind every claim",
-  "Interfaces that stay readable under real data",
 ];
 
 export default function Hero() {
@@ -9,14 +11,14 @@ export default function Hero() {
     <section className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-[3fr_2fr]">
       <div>
         <p className="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">
-          Developer / Analytics
+          {site.role}
         </p>
         <h1 className="mt-6 font-heading text-5xl font-semibold leading-[1.05] text-[#E2E8F0] sm:text-6xl">
-          Jason Park builds data tools you can check.
+          {site.name} builds data tools and research you can check.
         </h1>
         <p className="mt-6 max-w-xl text-sm leading-7 text-[#94A3B8]">
-          Pipelines, models and the interfaces around them. Each project below ships with its
-          tests and says plainly what it does and does not do.
+          Pipelines, models and empirical economics. Each project ships with its tests, each
+          paper with its data and limitations, and both say plainly what they do and do not show.
         </p>
         <div className="mt-8 flex gap-4 text-sm">
           <a
@@ -26,7 +28,7 @@ export default function Hero() {
             See projects
           </a>
           <a
-            href="https://github.com/jpark875"
+            href={site.links.github}
             className="rounded-md border border-[#1E293B] px-4 py-2 text-[#E2E8F0] hover:border-[#38BDF8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#38BDF8]"
           >
             GitHub

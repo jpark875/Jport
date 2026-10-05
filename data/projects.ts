@@ -5,6 +5,8 @@ export type Project = {
   tags: string[];
   tests: number;
   repo: string;
+  // Private repos show a label instead of a link that would 404.
+  isPublic: boolean;
 };
 
 const github = (name: string) => `https://github.com/jpark875/${name}`;
@@ -21,6 +23,7 @@ export const projects: Project[] = [
     tags: ["Python", "Pydantic", "SQLAlchemy", "Streamlit", "Anthropic API"],
     tests: 255,
     repo: github("FitTest"),
+    isPublic: false,
   },
   {
     name: "SportsBetter",
@@ -33,6 +36,7 @@ export const projects: Project[] = [
     tags: ["Python", "LightGBM", "SciPy", "Flask", "SQLite"],
     tests: 91,
     repo: github("SportsBetter"),
+    isPublic: true,
   },
   {
     name: "SportsTaxer",
@@ -45,6 +49,7 @@ export const projects: Project[] = [
     tags: ["Python", "OpenCV", "Pydantic", "openpyxl", "Vision API"],
     tests: 111,
     repo: github("SportsTaxer"),
+    isPublic: false,
   },
   {
     name: "FormPro2",
@@ -57,6 +62,7 @@ export const projects: Project[] = [
     tags: ["Python", "MediaPipe", "NumPy", "FastAPI", "OpenCV"],
     tests: 80,
     repo: github("FormPro2"),
+    isPublic: true,
   },
   {
     name: "Slots-Machine",
@@ -69,6 +75,7 @@ export const projects: Project[] = [
     tags: ["Python", "Fractions", "CLI", "pytest"],
     tests: 34,
     repo: github("Slots-Machine"),
+    isPublic: false,
   },
   {
     name: "Cowboy-Game",
@@ -80,5 +87,6 @@ export const projects: Project[] = [
     tags: ["Python", "Pygame", "OOP", "pytest"],
     tests: 23,
     repo: github("Cowboy-Game"),
+    isPublic: true,
   },
 ];

@@ -1,4 +1,5 @@
 import type { Project } from "@/data/projects";
+import Tags from "./Tags";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -17,26 +18,21 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="flex flex-col justify-between gap-6 border-t border-[#1E293B] pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-        <ul aria-label={`${project.name} stack`} className="flex flex-wrap gap-2 text-xs font-mono">
-          {project.tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-md border border-[#1E293B] px-2 py-1 text-[#94A3B8]"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <Tags label={`${project.name} stack`} tags={project.tags} />
         <div className="flex items-baseline justify-between text-sm">
           <span className="text-[#94A3B8]">
             <span className="text-[#E2E8F0]">{project.tests}</span> tests
           </span>
-          <a
-            href={project.repo}
-            className="text-[#38BDF8] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#38BDF8]"
-          >
-            Source &rarr;
-          </a>
+          {project.isPublic ? (
+            <a
+              href={project.repo}
+              className="text-[#38BDF8] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#38BDF8]"
+            >
+              Source &rarr;
+            </a>
+          ) : (
+            <span className="text-[#94A3B8]">Private repo</span>
+          )}
         </div>
       </div>
     </article>

@@ -1,0 +1,34 @@
+{
+  "title": "Fast Food Density and Emergency Department Use for Diet-Related Ambulatory Care Sensitive Conditions Among Medicaid-Eligible Populations",
+  "shortTitle": "Fast Food Density and Preventable ED Use",
+  "status": "completed",
+  "date": "2026-04",
+  "authors": ["Jason Park", "Kyrillos Dawoud", "Olivia Sciabbarrasi", "Sara Altarazi", "Patrick Gilmartin"],
+  "context": "ECON 3720 empirical research paper",
+  "summary": "Do counties with more fast-food restaurants see more preventable emergency department visits? Across 62 New York counties from 2011 to 2016, no robust link survives once income is controlled; median household income is the strongest predictor.",
+  "tags": ["Health economics", "Pooled OLS", "Stata", "NY SPARCS", "USDA Food Atlas", "ACS"],
+  "abstract": "Prior work links proximity to fast food with obesity, but not with what that costs the healthcare system. We test whether county-level fast-food density predicts emergency department visits for diet-related conditions that outpatient care should prevent, and whether the effect is larger in high-poverty counties. Pooled OLS on 372 county-year observations finds a negative association that loses significance under county-clustered standard errors and no poverty interaction. Log median household income is the one predictor that is large, significant and robust, which points to economic conditions rather than the food environment at this level of aggregation.",
+  "question": "Does county-level fast-food density increase preventable emergency department utilization among Medicaid-eligible populations, and is the effect amplified in high-poverty counties?",
+  "data": [
+    "372 county-year observations: 62 New York counties, 2011 to 2016",
+    "Preventable visit rates from New York SPARCS (ZIP-year), aggregated to counties with the HUD ZIP-county crosswalk",
+    "Fast-food and full-service restaurants per 1,000 residents from the USDA Food Environment Atlas (2016)",
+    "Poverty and median household income from ACS 5-year estimates (S1701, S1901)"
+  ],
+  "method": "Pooled OLS across three specifications, adding income and full-service restaurant controls, then a high-poverty indicator and its interaction with fast-food density. Restaurant measures exist only for 2016, so a fixed effects estimator would absorb them; identification comes from cross-county differences. Robustness checks: county-clustered standard errors, Breusch-Pagan, VIF and a linear combination test of the total effect in high-poverty counties.",
+  "equation": "PPV = b0 + b1 FFR + b2 HighPov + b3 (FFR x HighPov) + b4 ln(Inc) + b5 FSR + u",
+  "findings": [
+    "Fast-food density is negatively associated with preventable visits (b = -10.025; one SD is about 7% of the mean rate), the opposite of the hypothesis, and insignificant with clustered errors (p = 0.241).",
+    "No evidence that poverty amplifies the effect: the interaction is small and insignificant (b = -1.434, p = 0.778).",
+    "Log median household income is the most robust predictor (b = -15.888, p < 0.001; clustered p = 0.004): a 1% rise in income goes with a 0.16-point lower visit rate.",
+    "The model explains about 22% of the variation (R2 = 0.217); heteroskedasticity is present (Breusch-Pagan chi2 = 70.80), so robust and clustered errors are reported."
+  ],
+  "limitations": [
+    "Restaurant data are from 2016 only, so the food environment does not vary within counties over time.",
+    "County aggregation hides neighborhood variation and invites the ecological fallacy.",
+    "No controls for healthcare supply such as primary care providers per capita.",
+    "Fast-food locations are not random, so the estimates are associations rather than causal effects.",
+    "New York counties only; results may not generalize."
+  ],
+  "pdf": "/research/fast-food-density-ed-use.pdf"
+}

@@ -13,9 +13,35 @@ npm run build
 
 ## Structure
 
-- `app/` layout (fonts, metadata) and the single page
-- `components/` Header, Hero, Projects, ProjectCard, Footer
-- `data/projects.ts` the project list; add an entry to add a card
+- `app/` layout, home page, `research/[slug]` paper pages, 404, sitemap, robots, icon
+- `components/` page sections and cards
+- `content/research/` one JSON file per research entry
+- `data/projects.ts` the software projects; add an entry to add a card
+- `data/site.ts` name, role, site URL and contact links (empty links are hidden)
+- `lib/research.ts` loads and validates research entries at build time
+
+## Adding research
+
+1. Copy `content/research/_template.json` to `content/research/<slug>.json`. The file name
+   becomes the URL: `/research/<slug>`.
+2. Fill in `title`, `status` (`completed` or `in-progress`), `date` (`2026` or `2026-04`),
+   `authors`, `summary` and `tags`. Everything else is optional.
+3. Add an `abstract` or `findings` to give the entry its own page. Drop a PDF into
+   `public/research/` and set `"pdf": "/research/<file>.pdf"` for a download link.
+4. `"draft": true` keeps an entry off the live site while still showing it in `npm run dev`.
+   Drafted in-progress work still counts toward the "projects in progress" line.
+
+`npm run build` fails with the file name and the problem if an entry is malformed or its PDF
+is missing. Files starting with `_` are ignored.
+
+The two ongoing projects are in `content/research/ongoing-project-*.json` as drafts; fill them
+in and remove `"draft": true` when they are ready to show.
+
+## Deploying
+
+Set `NEXT_PUBLIC_SITE_URL` to the deployed origin (for example on Vercel) so share previews
+and the sitemap use absolute links. Projects in private repositories show "Private repo"
+instead of a source link; flip `isPublic` in `data/projects.ts` when a repo goes public.
 
 ## Design system
 

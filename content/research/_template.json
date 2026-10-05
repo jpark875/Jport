@@ -1,0 +1,19 @@
+{
+  "title": "Full paper title",
+  "shortTitle": "Optional shorter title for cards",
+  "status": "in-progress",
+  "date": "2026-09",
+  "authors": ["Jason Park"],
+  "context": "Optional: course, seminar or journal",
+  "summary": "Shown on the card. One or two sentences.",
+  "tags": ["Field", "Method", "Data", "Software"],
+  "abstract": "Optional. With abstract or findings set, the entry gets its own page.",
+  "question": "Optional research question.",
+  "data": ["Optional list of data sources"],
+  "method": "Optional estimation strategy.",
+  "equation": "Optional plain-text specification",
+  "findings": ["Optional list of results"],
+  "limitations": ["Optional list of limitations"],
+  "pdf": "/research/your-file.pdf",
+  "draft": true
+}
