@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 import Header from "@/components/Header";
-import Status from "@/components/Status";
 import Tags from "@/components/Tags";
 import { formatDate, hasDetailPage, visibleResearch } from "@/lib/research";
+import { label, link } from "@/lib/ui";
 
 type Params = { slug: string };
 
@@ -33,23 +33,32 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="border-t border-[#1E293B] pt-8">
-      <h2 className="font-heading text-sm uppercase tracking-widest text-[#94A3B8]">{title}</h2>
-      <div className="mt-4 text-sm leading-7 text-[#E2E8F0]">{children}</div>
+    <section className="border-t border-neutral-200 py-8">
+      <h2 className={label}>{title}</h2>
+      <div className="mt-4 max-w-2xl">{children}</div>
     </section>
   );
 }
 
-function Bullets({ items }: { items: string[] }) {
+function List({ items }: { items: string[] }) {
   return (
     <ul className="space-y-3">
       {items.map((item) => (
-        <li key={item} className="flex gap-3">
-          <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-[#38BDF8]" />
-          {item}
+        <li key={item} className="grid grid-cols-[1.25rem_1fr]">
+          <span aria-hidden className="text-[#666666]">&ndash;</span>
+          <span>{item}</span>
         </li>
       ))}
     </ul>
+  );
+}
+
+function Fact({ term, children }: { term: string; children: React.ReactNode }) {
+  return (
+    <div className="border-t border-neutral-200 py-3">
+      <dt className={label}>{term}</dt>
+      <dd className="mt-1 text-[14px]">{children}</dd>
+    </div>
   );
 }
 
@@ -60,25 +69,37 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
   return (
     <>
       <Header />
-      <main id="main" className="mx-auto max-w-6xl px-6 py-16">
-        <Link
-          href="/#research"
-          className="text-sm text-[#94A3B8] hover:text-[#38BDF8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#38BDF8]"
-        >
-          &larr; Research
-        </Link>
-
-        <div className="mt-10 grid gap-12 lg:grid-cols-[3fr_2fr]">
-          <article className="min-w-0 space-y-10">
-            <header>
-              <p className="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">
-                {entry.status === "completed" ? "Paper" : "Working paper"}
+      <main id="main" className="border-t border-[#111111]">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[3fr_7fr] md:py-20">
+          <aside className="min-w-0 md:sticky md:top-8 md:self-start">
+            <Link href="/#research" className={`text-[14px] ${link}`}>
+              &larr; Research
+            </Link>
+            <dl className="mt-8">
+              <Fact term="Status">{entry.status === "completed" ? "Completed" : "In progress"}</Fact>
+              <Fact term="Date">{formatDate(entry.date)}</Fact>
+              {entry.context ? <Fact term="Context">{entry.context}</Fact> : null}
+              <Fact term={entry.authors.length === 1 ? "Author" : "Authors"}>
+                {entry.authors.join(", ")}
+              </Fact>
+              <Fact term="Topics">
+                <Tags label="Topics" tags={entry.tags} />
+              </Fact>
+            </dl>
+            {entry.pdf ? (
+              <p className="border-t border-neutral-200 pt-3">
+                <a href={entry.pdf} className={`text-[14px] font-medium ${link}`}>
+                  Download PDF &darr;
+                </a>
               </p>
-              <h1 className="mt-4 font-heading text-3xl font-semibold leading-tight text-[#E2E8F0] sm:text-4xl">
-                {entry.title}
-              </h1>
-            </header>
+            ) : null}
+          </aside>
 
+          <article className="min-w-0">
+            <p className={label}>{entry.status === "completed" ? "Paper" : "Working paper"}</p>
+            <h1 className="mt-4 max-w-3xl pb-10 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] sm:text-[40px]">
+              {entry.title}
+            </h1>
             {entry.abstract ? (
               <Block title="Abstract">
                 <p>{entry.abstract}</p>
@@ -91,14 +112,14 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
             ) : null}
             {entry.data?.length ? (
               <Block title="Data">
-                <Bullets items={entry.data} />
+                <List items={entry.data} />
               </Block>
             ) : null}
             {entry.method ? (
               <Block title="Method">
                 <p>{entry.method}</p>
                 {entry.equation ? (
-                  <pre className="mt-5 overflow-x-auto rounded-md border border-[#1E293B] bg-[#13151A] p-4 text-xs text-[#E2E8F0]">
+                  <pre className="mt-5 overflow-x-auto border-l-2 border-[#111111] py-1 pl-4 font-mono text-[13px]">
                     {entry.equation}
                   </pre>
                 ) : null}
@@ -106,51 +127,18 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
             ) : null}
             {entry.findings?.length ? (
               <Block title="Findings">
-                <Bullets items={entry.findings} />
+                <List items={entry.findings} />
               </Block>
             ) : null}
             {entry.limitations?.length ? (
               <Block title="Limitations">
-                <Bullets items={entry.limitations} />
+                <List items={entry.limitations} />
               </Block>
             ) : null}
           </article>
-
-          <aside className="order-first min-w-0 lg:order-last lg:sticky lg:top-8 lg:self-start">
-            <div className="space-y-6 rounded-md border border-[#1E293B] bg-[#13151A] p-6 text-sm">
-              <Status status={entry.status} />
-              <dl className="space-y-4">
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-[#94A3B8]">Date</dt>
-                  <dd className="mt-1 text-[#E2E8F0]">{formatDate(entry.date)}</dd>
-                </div>
-                {entry.context ? (
-                  <div>
-                    <dt className="text-xs uppercase tracking-widest text-[#94A3B8]">Context</dt>
-                    <dd className="mt-1 text-[#E2E8F0]">{entry.context}</dd>
-                  </div>
-                ) : null}
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-[#94A3B8]">
-                    {entry.authors.length === 1 ? "Author" : "Authors"}
-                  </dt>
-                  <dd className="mt-1 text-[#E2E8F0]">{entry.authors.join(", ")}</dd>
-                </div>
-              </dl>
-              <Tags label="Topics" tags={entry.tags} />
-              {entry.pdf ? (
-                <a
-                  href={entry.pdf}
-                  className="block rounded-md bg-[#38BDF8] px-4 py-2 text-center font-medium text-[#0D0E11] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E2E8F0]"
-                >
-                  Download PDF
-                </a>
-              ) : null}
-            </div>
-          </aside>
         </div>
       </main>
-      <Footer />
+      <Contact />
     </>
   );
 }

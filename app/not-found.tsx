@@ -1,26 +1,26 @@
 import Link from "next/link";
-import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 import Header from "@/components/Header";
+import { label, link } from "@/lib/ui";
 
 export default function NotFound() {
   return (
     <>
       <Header />
-      <main id="main" className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[3fr_2fr]">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">404</p>
-          <h1 className="mt-4 font-heading text-4xl font-semibold text-[#E2E8F0]">
-            Nothing at this address.
-          </h1>
-          <Link
-            href="/"
-            className="mt-8 inline-block text-sm text-[#38BDF8] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#38BDF8]"
-          >
-            &larr; Back home
-          </Link>
+      <main id="main" className="border-t border-[#111111]">
+        <div className="mx-auto grid max-w-6xl gap-6 px-6 py-24 md:grid-cols-[3fr_7fr] md:gap-10">
+          <p className={label}>404</p>
+          <div>
+            <h1 className="text-[32px] font-medium leading-[1.15] tracking-[-0.02em] sm:text-[48px]">
+              Nothing at this address.
+            </h1>
+            <Link href="/" className={`mt-8 inline-block ${link}`}>
+              &larr; Back home
+            </Link>
+          </div>
         </div>
       </main>
-      <Footer />
+      <Contact />
     </>
   );
 }

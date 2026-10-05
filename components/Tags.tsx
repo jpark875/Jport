@@ -1,10 +1,12 @@
-export default function Tags({ label, tags }: { label: string; tags: string[] }) {
+import { meta } from "@/lib/ui";
+
+// Bracketed labels; `year` leads the row so the two wrap together.
+export default function Tags({ label, tags, year }: { label: string; tags: string[]; year?: string }) {
   return (
-    <ul aria-label={label} className="flex flex-wrap gap-2 text-xs font-mono">
+    <ul aria-label={label} className={`flex flex-wrap gap-x-3 gap-y-1 tracking-[0.02em] ${meta}`}>
+      {year ? <li>[ {year} ]</li> : null}
       {tags.map((tag) => (
-        <li key={tag} className="rounded-md border border-[#1E293B] px-2 py-1 text-[#94A3B8]">
-          {tag}
-        </li>
+        <li key={tag}>[ {tag} ]</li>
       ))}
     </ul>
   );

@@ -1,15 +1,13 @@
 import type { Config } from "tailwindcss";
 
-// Colors live in the class names (bg-[#0D0E11] etc.), not in the theme, so the
-// tokens stay exactly as the design system states them.
+// Colors are written in class names (#111111, #666666, #ffffff, neutral-200) rather than the theme.
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.ts"],
   theme: {
     extend: {
       fontFamily: {
-        heading: ["var(--font-heading)", "sans-serif"],
-        body: ["var(--font-body)", "monospace"],
-        mono: ["var(--font-body)", "monospace"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },

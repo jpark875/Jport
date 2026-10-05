@@ -1,31 +1,37 @@
 import Link from "next/link";
-
-const links = [
-  { href: "/#projects", label: "Projects" },
-  { href: "/#research", label: "Research" },
-  { href: "/#contact", label: "Contact" },
-];
-
-const focus = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#38BDF8]";
+import { site } from "@/data/site";
+import { link } from "@/lib/ui";
 
 export default function Header() {
+  const external = [
+    { label: "GitHub", href: site.links.github },
+    { label: "LinkedIn", href: site.links.linkedin },
+  ].filter((item) => item.href);
+
   return (
-    <header className="border-b border-[#1E293B]">
+    <header>
       <a
         href="#main"
-        className="sr-only rounded-md bg-[#38BDF8] px-3 py-2 text-sm text-[#0D0E11] focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+        className="sr-only bg-[#111111] px-3 py-2 text-[14px] text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
       >
         Skip to content
       </a>
-      <div className="mx-auto flex max-w-6xl items-baseline justify-between px-6 py-5">
-        <Link href="/" className={`font-heading text-lg font-medium text-[#E2E8F0] ${focus}`}>
-          jport<span className="text-[#38BDF8]">.</span>
+      <div className="mx-auto flex max-w-6xl flex-wrap items-baseline justify-between gap-x-8 gap-y-2 px-6 py-6">
+        <Link href="/" className={`text-[15px] ${link}`}>
+          <span className="font-medium">{site.name}</span>
+          <span className="text-[#666666]"> / {site.role}</span>
         </Link>
-        <nav aria-label="Primary" className="flex gap-6 text-sm text-[#94A3B8]">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className={`hover:text-[#38BDF8] ${focus}`}>
-              {link.label}
-            </Link>
+        <nav aria-label="Primary" className="flex gap-6 text-[14px]">
+          <Link href="/#projects" className={link}>
+            Projects
+          </Link>
+          <Link href="/#research" className={link}>
+            Research
+          </Link>
+          {external.map((item) => (
+            <a key={item.label} href={item.href} className={link}>
+              {item.label}
+            </a>
           ))}
         </nav>
       </div>

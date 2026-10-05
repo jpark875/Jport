@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 html {
-  background-color: #0d0e11;
+  background-color: #ffffff;
 }
 
 ::selection {
-  background-color: #38bdf8;
-  color: #0d0e11;
+  background-color: #111111;
+  color: #ffffff;
 }

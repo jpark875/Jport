@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const heading = Space_Grotesk({ subsets: ["latin"], variable: "--font-heading" });
-const body = JetBrains_Mono({ subsets: ["latin"], variable: "--font-body" });
+const sans = Inter({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-sans" });
+const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -16,8 +16,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${heading.variable} ${body.variable}`}>
-      <body className="bg-[#0D0E11] font-body text-[#E2E8F0] antialiased">{children}</body>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body className="bg-white font-sans text-[15px] font-normal leading-[1.6] text-[#111111] antialiased sm:text-[16px]">
+        {children}
+      </body>
     </html>
   );
 }
