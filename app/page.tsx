@@ -1,3 +1,4 @@
+import Background from "@/components/Background";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Header from "@/components/Header";
@@ -14,6 +15,7 @@ export default function Home() {
         <ProjectList />
         <ResearchList />
         <Experience />
+        <Background />
       </main>
       <Contact />
     </>

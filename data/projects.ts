@@ -26,7 +26,7 @@ export const projects: Project[] = [
   },
   {
     name: "SportsBetter",
-    year: "2026",
+    year: "2025",
     summary:
       "Multi-sport value-betting engine: calibrated win probabilities against live odds, with stakes sized by a correlation-aware fractional Kelly optimiser.",
     impact: "NBA, WNBA, MLB and EPL behind a one-class plugin contract; 93% test coverage.",

@@ -18,7 +18,8 @@ npm run build
 - `content/research/` one JSON file per research entry
 - `data/projects.ts` the software projects; add an entry to add a card
 - `data/site.ts` name, role, statement, site URL and contact links (empty links are hidden)
-- `data/experience.ts` roles; drafts show only in `npm run dev`
+- `data/experience.ts` roles, newest first; drafts show only in `npm run dev`
+- `data/background.ts` education and skills
 - `lib/research.ts` loads and validates research entries at build time
 
 ## Adding research

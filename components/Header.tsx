@@ -21,12 +21,15 @@ export default function Header() {
           <span className="font-medium">{site.name}</span>
           <span className="text-[#666666]"> / {site.role}</span>
         </Link>
-        <nav aria-label="Primary" className="flex gap-6 text-[14px]">
+        <nav aria-label="Primary" className="flex flex-wrap gap-x-6 gap-y-1 text-[14px]">
           <Link href="/#projects" className={link}>
             Projects
           </Link>
           <Link href="/#research" className={link}>
             Research
+          </Link>
+          <Link href="/#experience" className={link}>
+            Experience
           </Link>
           {external.map((item) => (
             <a key={item.label} href={item.href} className={link}>
