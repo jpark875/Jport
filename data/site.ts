@@ -2,9 +2,9 @@
 export const site = {
   name: "Jason Park",
   role: "Developer / Analytics / Economics",
-  statement: "I build data systems and economic research, and show the evidence behind both.",
-  description:
-    "Economics and Computer Science at the University of Virginia. Pipelines, models and applied econometrics: each project ships with its tests, each paper with its data and limitations.",
+  title: "Portfolio",
+  subtitle: "Economics & Computer Science, University of Virginia",
+  description: "Portfolio of Jason Park: projects, research and experience.",
   // Set NEXT_PUBLIC_SITE_URL to the deployed origin so share previews use absolute links.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   links: {
