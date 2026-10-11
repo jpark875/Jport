@@ -65,7 +65,7 @@ export const projects: Project[] = [
     tags: ["Python", "Probability", "CLI"],
     tests: 34,
     repo: github("Slots-Machine"),
-    isPublic: false,
+    isPublic: true,
   },
   {
     name: "Cowboy-Game",
