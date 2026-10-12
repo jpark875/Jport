@@ -6,6 +6,7 @@ import Stats from "@/components/Stats";
 import Header from "@/components/Header";
 import Tags from "@/components/Tags";
 import { formatDate, hasDetailPage, visibleResearch } from "@/lib/research";
+import { asset } from "@/lib/asset";
 import { label, link } from "@/lib/ui";
 
 type Params = { slug: string };
@@ -91,14 +92,14 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
               <ul className="space-y-2 border-t border-neutral-200 pt-3">
                 {entry.pdf ? (
                   <li>
-                    <a href={entry.pdf} className={`text-[14px] font-medium ${link}`}>
+                    <a href={asset(entry.pdf)} className={`text-[14px] font-medium ${link}`}>
                       Paper (PDF) &darr;
                     </a>
                   </li>
                 ) : null}
                 {entry.documents?.map((doc) => (
                   <li key={doc.href}>
-                    <a href={doc.href} className={`text-[14px] font-medium ${link}`}>
+                    <a href={asset(doc.href)} className={`text-[14px] font-medium ${link}`}>
                       {doc.label} (PDF) &darr;
                     </a>
                   </li>
@@ -153,7 +154,7 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
                 <figure className="mt-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={entry.figure.src}
+                    src={asset(entry.figure.src)}
                     alt={entry.figure.alt}
                     decoding="async"
                     className="h-auto w-full border border-neutral-200"

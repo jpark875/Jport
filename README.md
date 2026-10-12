@@ -8,7 +8,7 @@ Personal developer and analytics portfolio. Next.js, React and Tailwind CSS.
 npm install
 npm run dev      # http://localhost:3000
 npm run lint     # type check
-npm run build
+npm run build    # static site in out/
 ```
 
 ## Structure
@@ -43,9 +43,19 @@ remove `"draft": true` when it is ready to show.
 
 ## Deploying
 
-Set `NEXT_PUBLIC_SITE_URL` to the deployed origin (for example on Vercel) so share previews
-and the sitemap use absolute links. Projects in private repositories show "Private repo"
-instead of a source link; flip `isPublic` in `data/projects.ts` when a repo goes public.
+The site is a static export (`out/`) published to GitHub Pages by
+`.github/workflows/pages.yml` on every push to `main`. The workflow sets
+`NEXT_PUBLIC_BASE_PATH` (the `/Jport` sub-path of a project site) and `NEXT_PUBLIC_SITE_URL`
+from the Pages configuration, so links, PDFs and the sitemap resolve on the live URL. Files
+under `public/` referenced from code go through `asset()` in `lib/asset.ts` to pick up the
+base path.
+
+One-time setup in the repository's Settings: make the repository public (Pages on a free
+account needs it), then under Pages set Source to "GitHub Actions". Naming the repository
+`jpark875.github.io` instead serves the site at the root, with no sub-path.
+
+Projects in private repositories show "Private repo" instead of a source link; flip
+`isPublic` in `data/projects.ts` when a repo goes public.
 
 ## Design system
 

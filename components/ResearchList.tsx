@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { allResearch, hasDetailPage, visibleResearch } from "@/lib/research";
+import { asset } from "@/lib/asset";
 import { link, meta, pad } from "@/lib/ui";
 import Section from "./Section";
 import Stats from "./Stats";
@@ -61,12 +62,12 @@ export default function ResearchList() {
                   </Link>
                 ) : null}
                 {item.pdf ? (
-                  <a href={item.pdf} className={`text-[#111111] ${link}`}>
+                  <a href={asset(item.pdf)} className={`text-[#111111] ${link}`}>
                     Paper (PDF)
                   </a>
                 ) : null}
                 {item.documents?.map((doc) => (
-                  <a key={doc.href} href={doc.href} className={`text-[#111111] ${link}`}>
+                  <a key={doc.href} href={asset(doc.href)} className={`text-[#111111] ${link}`}>
                     {doc.label} (PDF)
                   </a>
                 ))}
