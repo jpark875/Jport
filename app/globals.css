@@ -4,6 +4,24 @@
 
 html {
   background-color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* Anchored sections clear the sticky header. */
+section[id] {
+  scroll-margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 ::selection {

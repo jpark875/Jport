@@ -30,14 +30,16 @@ npm run build
    `authors`, `summary` and `tags`. Everything else is optional.
 3. Add an `abstract` or `findings` to give the entry its own page. Drop a PDF into
    `public/research/` and set `"pdf": "/research/<file>.pdf"` for a download link.
+   Optional extras: `stats` (up to three headline numbers shown on the card and page),
+   `documents` (more files, such as a policy memo) and `figure` (an image with alt text).
 4. `"draft": true` keeps an entry off the live site while still showing it in `npm run dev`.
    Drafted in-progress work still counts toward the "projects in progress" line.
 
 `npm run build` fails with the file name and the problem if an entry is malformed or its PDF
 is missing. Files starting with `_` are ignored.
 
-The two ongoing projects are in `content/research/ongoing-project-*.json` as drafts; fill them
-in and remove `"draft": true` when they are ready to show.
+The ongoing project is in `content/research/ongoing-project.json` as a draft; fill it in and
+remove `"draft": true` when it is ready to show.
 
 ## Deploying
 
@@ -50,54 +52,15 @@ instead of a source link; flip `isPublic` in `data/projects.ts` when a repo goes
 Text-first and flat: no cards, shadows, gradients or rounded corners.
 
 - **Type:** Inter for headings and body, JetBrains Mono for dates, tags and labels. Two
-  weights only (400, 500). Headlines 32-48px against 15-16px body at line-height 1.6.
+  weights only (400, 500). The hero name runs up to 72px; other headlines 22-48px against
+  15-16px body at line-height 1.6.
   Uppercase labels get extra tracking.
 - **Color:** `#111111` text on `#ffffff`. `#666666` only for dates, metadata and captions.
   Structure comes from 1px rules: `border-[#111111]` between sections, `border-neutral-200`
   between items.
 - **Layout:** each section is a 30/70 split, label left and content right, stacking on small
-  screens. Lists are numbered (`01 / Title`) with bracketed labels such as `[ Python ]`.
+  screens. Lists are numbered (`01 / Title`) with bracketed labels such as `[ Python ]`;
+  projects sit in a two-column grid, each item opened by a 1px rule.
 - **Links:** plain text, underline on hover.
 
 Shared class strings live in `lib/ui.ts`.
-
-## Adding research
-
-1. Copy `content/research/_template.json` to `content/research/<slug>.json`. The file name
-   becomes the URL: `/research/<slug>`.
-2. Fill in `title`, `status` (`completed` or `in-progress`), `date` (`2026` or `2026-04`),
-   `authors`, `summary` and `tags`. Everything else is optional.
-3. Add an `abstract` or `findings` to give the entry its own page. Drop a PDF into
-   `public/research/` and set `"pdf": "/research/<file>.pdf"` for a download link.
-4. `"draft": true` keeps an entry off the live site while still showing it in `npm run dev`.
-   Drafted in-progress work still counts toward the "projects in progress" line.
-
-`npm run build` fails with the file name and the problem if an entry is malformed or its PDF
-is missing. Files starting with `_` are ignored.
-
-The two ongoing projects are in `content/research/ongoing-project-*.json` as drafts; fill them
-in and remove `"draft": true` when they are ready to show.
-
-## Deploying
-
-Set `NEXT_PUBLIC_SITE_URL` to the deployed origin (for example on Vercel) so share previews
-and the sitemap use absolute links. Projects in private repositories show "Private repo"
-instead of a source link; flip `isPublic` in `data/projects.ts` when a repo goes public.
-
-## Design system
-
-Dark editorial monochrome. Colors are written directly in class names and are not
-redefined in the Tailwind theme.
-
-| Token | Value |
-|---|---|
-| Background | `#0D0E11` |
-| Card | `#13151A` |
-| Text / muted | `#E2E8F0` / `#94A3B8` |
-| Accent | `#38BDF8` |
-| Border | `#1E293B` |
-
-Space Grotesk for headings, JetBrains Mono for body and tags. Cards use
-`rounded-md border border-[#1E293B] bg-[#13151A]`. No shadows, blurs or gradients, and
-layouts are asymmetric (60/40) rather than centered grids. Every project card carries a
-`text-xs font-mono` tags row.

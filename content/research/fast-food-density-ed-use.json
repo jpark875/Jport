@@ -3,10 +3,23 @@
   "shortTitle": "Fast Food Density and Preventable ED Use",
   "status": "completed",
   "date": "2026-04",
-  "authors": ["Jason Park", "Kyrillos Dawoud", "Olivia Sciabbarrasi", "Sara Altarazi", "Patrick Gilmartin"],
+  "authors": [
+    "Jason Park",
+    "Kyrillos Dawoud",
+    "Olivia Sciabbarrasi",
+    "Sara Altarazi",
+    "Patrick Gilmartin"
+  ],
   "context": "ECON 3720 empirical research paper",
   "summary": "Do counties with more fast-food restaurants see more preventable emergency department visits? Across 62 New York counties from 2011 to 2016, no robust link survives once income is controlled; median household income is the strongest predictor.",
-  "tags": ["Health economics", "Pooled OLS", "Stata", "NY SPARCS", "USDA Food Atlas", "ACS"],
+  "tags": [
+    "Health economics",
+    "Pooled OLS",
+    "Stata",
+    "NY SPARCS",
+    "USDA Food Atlas",
+    "ACS"
+  ],
   "abstract": "Prior work links proximity to fast food with obesity, but not with what that costs the healthcare system. We test whether county-level fast-food density predicts emergency department visits for diet-related conditions that outpatient care should prevent, and whether the effect is larger in high-poverty counties. Pooled OLS on 372 county-year observations finds a negative association that loses significance under county-clustered standard errors and no poverty interaction. Log median household income is the one predictor that is large, significant and robust, which points to economic conditions rather than the food environment at this level of aggregation.",
   "question": "Does county-level fast-food density increase preventable emergency department utilization among Medicaid-eligible populations, and is the effect amplified in high-poverty counties?",
   "data": [
@@ -30,5 +43,19 @@
     "Fast-food locations are not random, so the estimates are associations rather than causal effects.",
     "New York counties only; results may not generalize."
   ],
-  "pdf": "/research/fast-food-density-ed-use.pdf"
+  "pdf": "/research/fast-food-density-ed-use.pdf",
+  "stats": [
+    {
+      "value": "−10.0",
+      "label": "Fast-food density coefficient, clustered p = 0.24"
+    },
+    {
+      "value": "−15.9",
+      "label": "Log median income, clustered p = 0.004"
+    },
+    {
+      "value": "372",
+      "label": "County-year observations"
+    }
+  ]
 }

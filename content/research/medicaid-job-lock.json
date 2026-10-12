@@ -1,0 +1,44 @@
+{
+  "title": "Did Medicaid Expansion Release Job Lock? Coverage, Job Mobility, and Labor Supply under Staggered Adoption",
+  "shortTitle": "Medicaid Expansion and Job Lock",
+  "status": "completed",
+  "date": "2026-10",
+  "authors": ["Jason Park"],
+  "context": "Working paper and policy memo",
+  "summary": "Did the ACA Medicaid expansion free low-income workers to switch jobs, cut hours or start businesses? Across 40 states, it raised Medicaid coverage by 13 points and cut uninsurance by 10, with no change in work or job mobility.",
+  "tags": ["Labor economics", "Health policy", "Staggered DiD", "R", "CPS-ASEC"],
+  "stats": [
+    { "value": "+13.3 pp", "label": "Medicaid coverage" },
+    { "value": "−9.9 pp", "label": "Uninsured" },
+    { "value": "−0.5 pp", "label": "Worked during the year, CI −1.9 to 1.0" }
+  ],
+  "abstract": "If employer coverage locks low-income workers into jobs, the ACA Medicaid expansion should have raised job switching, self-employment and voluntary part-time work, and it might have reduced work. Using the CPS Annual Social and Economic Supplement for 2008 to 2024 and the Callaway and Sant'Anna estimator for staggered adoption, expansion raised Medicaid coverage among adults at or below 138% of the poverty line by 13.3 percentage points and cut uninsurance by 9.9 points. It did not reduce employment or hours, and it did not detectably change job mobility, self-employment or voluntary part-time work. A methodological finding: the survey year just before a January expansion is partly treated, so the conventional comparison year understates the coverage gain by a quarter to more than a half and manufactures a spurious 3-point rise in employment.",
+  "question": "Did Medicaid expansion raise coverage, and did coverage that no longer depends on a job change the labor-market margins that job-lock theory predicts: job mobility, self-employment, part-time work, employment and hours?",
+  "data": [
+    "IPUMS CPS-ASEC, survey years 2009 to 2025 (reference years 2008 to 2024): 191,112 person records for adults aged 26 to 64 at or below 138% of the federal poverty line",
+    "680 state-year cells in 40 states: 30 expansion states in cohorts from 2014 to 2024 and 10 that never expanded",
+    "Early expanders and states with broad pre-ACA adult coverage excluded; fixed pre-period population weights"
+  ],
+  "method": "Callaway and Sant'Anna (2021) group-time effects with never-treated controls and a universal base period two years before expansion, aggregated over the first five years. Influence-function standard errors clustered by state. Robustness: not-yet-treated controls, cohort splits, joint and linear pre-trend tests, TWFE with negative-weight diagnostics, a Goodman-Bacon decomposition, alternative samples, timing and windows, and two placebo designs.",
+  "equation": "ATT(g, t) = E[Y_t − Y_{g−2} | G = g] − E[Y_t − Y_{g−2} | never treated]",
+  "findings": [
+    "Coverage gains are large and robust: Medicaid +13.3 pp (95% CI 10.3 to 16.3) and uninsured −9.9 pp (−12.6 to −7.3) in the 2014 cohort; Medicaid estimates range from 11.9 to 15.4 pp across age ranges, timing, windows and control groups.",
+    "No reduction in work: employment −0.5 pp (−1.9 to 1.0) and hours −2 a year (−34 to 30), ruling out declines larger than about 0.15 per new enrollee.",
+    "No job-lock release: job switching, self-employment and voluntary part-time work did not rise; the few significant estimates point the wrong way, start before expansion and are not attributed to the policy.",
+    "The comparison year matters more than the estimator: the year before expansion understates the Medicaid gain by about a quarter and produces a spurious +3.3 pp employment effect.",
+    "TWFE bias is modest here: no treated cell has a negative weight, and forbidden comparisons carry 17.5% of the weight, pulling the Medicaid estimate down by about 0.8 pp."
+  ],
+  "limitations": [
+    "Later cohorts contain one to three states each, so the preferred estimates rest on the 2014 cohort.",
+    "Joint pre-trend tests still reject for some outcomes; self-employment and employer coverage show pre-trends and are not interpreted.",
+    "Job mobility is proxied by having two or more employers in a year; job-to-job moves are not observed.",
+    "An income-defined sample can shift if expansion changes earnings."
+  ],
+  "figure": {
+    "src": "/research/medicaid-job-lock-effects.png",
+    "alt": "Dot-and-interval chart of effects on eight outcomes under six design choices. Coverage effects stay large across every row; labor-market effects move around zero.",
+    "caption": "Average effect over the first five years, 95% confidence intervals. Each row changes one design choice; blue is the preferred specification."
+  },
+  "pdf": "/research/medicaid-job-lock.pdf",
+  "documents": [{ "label": "Policy memo", "href": "/research/medicaid-job-lock-memo.pdf" }]
+}

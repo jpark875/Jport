@@ -3,17 +3,47 @@
   "shortTitle": "Optional shorter title for cards",
   "status": "in-progress",
   "date": "2026-09",
-  "authors": ["Jason Park"],
+  "authors": [
+    "Jason Park"
+  ],
   "context": "Optional: course, seminar or journal",
   "summary": "Shown on the card. One or two sentences.",
-  "tags": ["Field", "Method", "Data", "Software"],
+  "tags": [
+    "Field",
+    "Method",
+    "Data",
+    "Software"
+  ],
+  "stats": [
+    {
+      "value": "Optional headline number",
+      "label": "What it measures"
+    }
+  ],
   "abstract": "Optional. With abstract or findings set, the entry gets its own page.",
   "question": "Optional research question.",
-  "data": ["Optional list of data sources"],
+  "data": [
+    "Optional list of data sources"
+  ],
   "method": "Optional estimation strategy.",
   "equation": "Optional plain-text specification",
-  "findings": ["Optional list of results"],
-  "limitations": ["Optional list of limitations"],
+  "findings": [
+    "Optional list of results"
+  ],
+  "limitations": [
+    "Optional list of limitations"
+  ],
+  "figure": {
+    "src": "/research/your-figure.png",
+    "alt": "Describe the chart",
+    "caption": "Optional caption"
+  },
   "pdf": "/research/your-file.pdf",
+  "documents": [
+    {
+      "label": "Optional extra file, e.g. Policy memo",
+      "href": "/research/your-memo.pdf"
+    }
+  ],
   "draft": true
 }

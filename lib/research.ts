@@ -20,7 +20,10 @@ export type Research = {
   equation?: string;
   findings?: string[];
   limitations?: string[];
+  stats?: { value: string; label: string }[]; // up to three headline numbers
+  figure?: { src: string; alt: string; caption?: string }; // image under public/
   pdf?: string; // path under public/, e.g. /research/paper.pdf
+  documents?: { label: string; href: string }[]; // extra files, e.g. a policy memo
   draft?: boolean;
 };
 
@@ -56,12 +59,37 @@ function validate(file: string, raw: unknown): Research {
   if (!/^\d{4}(-(0[1-9]|1[0-2]))?$/.test(entry.date as string)) {
     fail(file, `"date" must look like 2026 or 2026-04`);
   }
-  if (entry.pdf !== undefined) {
-    const pdf = entry.pdf as string;
-    if (typeof pdf !== "string" || !pdf.startsWith("/")) fail(file, `"pdf" must start with /`);
-    if (!fs.existsSync(path.join(process.cwd(), "public", pdf))) {
-      fail(file, `"pdf" points at public${pdf}, which does not exist`);
+  const asset = (key: string, value: unknown) => {
+    if (typeof value !== "string" || !value.startsWith("/")) fail(file, `"${key}" must start with /`);
+    if (!fs.existsSync(path.join(process.cwd(), "public", value as string))) {
+      fail(file, `"${key}" points at public${value}, which does not exist`);
     }
+  };
+  if (entry.pdf !== undefined) asset("pdf", entry.pdf);
+  const pairs = (key: string, fields: string[]) => {
+    const value = entry[key];
+    if (value === undefined) return;
+    const ok =
+      Array.isArray(value) &&
+      value.length > 0 &&
+      value.every(
+        (item) =>
+          typeof item === "object" &&
+          item !== null &&
+          fields.every((f) => typeof (item as Record<string, unknown>)[f] === "string"),
+      );
+    if (!ok) fail(file, `"${key}" must be a list of objects with ${fields.join(" and ")}`);
+  };
+  pairs("stats", ["value", "label"]);
+  pairs("documents", ["label", "href"]);
+  if (Array.isArray(entry.stats) && entry.stats.length > 3) fail(file, `"stats" holds at most three`);
+  for (const doc of (entry.documents as { href: string }[] | undefined) ?? []) asset("documents", doc.href);
+  if (entry.figure !== undefined) {
+    const figure = entry.figure as Record<string, unknown>;
+    if (typeof figure !== "object" || figure === null || typeof figure.alt !== "string" || !figure.alt) {
+      fail(file, `"figure" needs src and alt text`);
+    }
+    asset("figure.src", figure.src);
   }
   return { ...(entry as Omit<Research, "slug">), slug: file.replace(/\.json$/, "") };
 }

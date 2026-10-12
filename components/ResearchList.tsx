@@ -2,6 +2,7 @@ import Link from "next/link";
 import { allResearch, hasDetailPage, visibleResearch } from "@/lib/research";
 import { link, meta, pad } from "@/lib/ui";
 import Section from "./Section";
+import Stats from "./Stats";
 import Tags from "./Tags";
 
 const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
@@ -29,35 +30,46 @@ export default function ResearchList() {
           const title = item.shortTitle ?? item.title;
           const detail = hasDetailPage(item);
           return (
-            <li key={item.slug} className="border-b border-neutral-200 py-8 first:pt-0 last:border-b-0">
+            <li key={item.slug} className="border-b border-neutral-200 py-10 first:pt-0 last:border-b-0">
               {item.draft ? <p className={`mb-2 ${meta}`}>Draft: hidden on the live site</p> : null}
               <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-                <h3 className="text-[20px] font-medium leading-[1.3]">
-                  <span className={meta}>{pad(index + 1)} / </span>
-                  {detail ? (
-                    <Link href={`/research/${item.slug}`} className={link}>
-                      {title}
-                    </Link>
-                  ) : (
-                    title
-                  )}
-                </h3>
+                <p className={meta}>
+                  {pad(index + 1)} / {item.status === "completed" ? "Paper" : "In progress"}
+                  {item.context ? ` · ${item.context}` : ""}
+                </p>
                 <Tags label={`${title} topics`} tags={item.tags} year={item.date.slice(0, 4)} />
               </div>
+              <h3 className="mt-4 max-w-2xl text-[24px] font-medium leading-[1.25] tracking-[-0.015em]">
+                {detail ? (
+                  <Link href={`/research/${item.slug}`} className={link}>
+                    {title}
+                  </Link>
+                ) : (
+                  title
+                )}
+              </h3>
               <p className="mt-3 max-w-2xl">{item.summary}</p>
-              <p className={`mt-4 flex flex-wrap gap-x-6 gap-y-1 ${meta}`}>
-                <span>{item.status === "completed" ? "Completed" : "In progress"}</span>
-                {item.context ? <span>{item.context}</span> : null}
-                {item.pdf ? (
-                  <a href={item.pdf} className={`text-[#111111] ${link}`}>
-                    PDF
-                  </a>
-                ) : null}
+              {item.stats?.length ? (
+                <div className="mt-6">
+                  <Stats items={item.stats} label={`${title} headline results`} />
+                </div>
+              ) : null}
+              <p className={`mt-5 flex flex-wrap gap-x-6 gap-y-1 ${meta}`}>
                 {detail ? (
                   <Link href={`/research/${item.slug}`} className={`text-[#111111] ${link}`}>
                     Read &rarr;
                   </Link>
                 ) : null}
+                {item.pdf ? (
+                  <a href={item.pdf} className={`text-[#111111] ${link}`}>
+                    Paper (PDF)
+                  </a>
+                ) : null}
+                {item.documents?.map((doc) => (
+                  <a key={doc.href} href={doc.href} className={`text-[#111111] ${link}`}>
+                    {doc.label} (PDF)
+                  </a>
+                ))}
               </p>
             </li>
           );

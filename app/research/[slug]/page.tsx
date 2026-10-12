@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Contact from "@/components/Contact";
+import Stats from "@/components/Stats";
 import Header from "@/components/Header";
 import Tags from "@/components/Tags";
 import { formatDate, hasDetailPage, visibleResearch } from "@/lib/research";
@@ -86,12 +87,23 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
                 <Tags label="Topics" tags={entry.tags} />
               </Fact>
             </dl>
-            {entry.pdf ? (
-              <p className="border-t border-neutral-200 pt-3">
-                <a href={entry.pdf} className={`text-[14px] font-medium ${link}`}>
-                  Download PDF &darr;
-                </a>
-              </p>
+            {entry.pdf || entry.documents?.length ? (
+              <ul className="space-y-2 border-t border-neutral-200 pt-3">
+                {entry.pdf ? (
+                  <li>
+                    <a href={entry.pdf} className={`text-[14px] font-medium ${link}`}>
+                      Paper (PDF) &darr;
+                    </a>
+                  </li>
+                ) : null}
+                {entry.documents?.map((doc) => (
+                  <li key={doc.href}>
+                    <a href={doc.href} className={`text-[14px] font-medium ${link}`}>
+                      {doc.label} (PDF) &darr;
+                    </a>
+                  </li>
+                ))}
+              </ul>
             ) : null}
           </aside>
 
@@ -100,6 +112,11 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
             <h1 className="mt-4 max-w-3xl pb-10 text-[32px] font-medium leading-[1.15] tracking-[-0.02em] sm:text-[40px]">
               {entry.title}
             </h1>
+            {entry.stats?.length ? (
+              <div className="pb-10">
+                <Stats items={entry.stats} label="Headline results" />
+              </div>
+            ) : null}
             {entry.abstract ? (
               <Block title="Abstract">
                 <p>{entry.abstract}</p>
@@ -129,6 +146,25 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
               <Block title="Findings">
                 <List items={entry.findings} />
               </Block>
+            ) : null}
+            {entry.figure ? (
+              <section className="border-t border-neutral-200 py-8">
+                <h2 className={label}>Figure</h2>
+                <figure className="mt-4">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={entry.figure.src}
+                    alt={entry.figure.alt}
+                    decoding="async"
+                    className="h-auto w-full border border-neutral-200"
+                  />
+                  {entry.figure.caption ? (
+                    <figcaption className="mt-3 max-w-2xl text-[14px] text-[#666666]">
+                      {entry.figure.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              </section>
             ) : null}
             {entry.limitations?.length ? (
               <Block title="Limitations">
