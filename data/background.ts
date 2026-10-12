@@ -14,7 +14,7 @@ export const education = {
 };
 
 export const skills: { label: string; items: string[] }[] = [
-  { label: "Languages", items: ["Python", "TypeScript", "SQL", "R", "Stata", "LaTeX"] },
+  { label: "Languages", items: ["Python", "TypeScript", "Java", "SQL", "R", "Stata", "LaTeX"] },
   {
     label: "Libraries",
     items: ["pandas", "NumPy", "SciPy", "LightGBM", "OpenCV", "Flask", "Vite", "Vitest"],
