@@ -1,4 +1,3 @@
-// Shared class strings. Two weights only: font-normal (400) and font-medium (500).
 export const link =
   "underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111]";
 export const label = "font-mono text-[12px] uppercase tracking-[0.12em] text-[#666666]";

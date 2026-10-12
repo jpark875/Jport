@@ -20,10 +20,10 @@ export type Research = {
   equation?: string;
   findings?: string[];
   limitations?: string[];
-  stats?: { value: string; label: string }[]; // up to three headline numbers
-  figure?: { src: string; alt: string; caption?: string }; // image under public/
-  pdf?: string; // path under public/, e.g. /research/paper.pdf
-  documents?: { label: string; href: string }[]; // extra files, e.g. a policy memo
+  stats?: { value: string; label: string }[];
+  figure?: { src: string; alt: string; caption?: string };
+  pdf?: string;
+  documents?: { label: string; href: string }[];
   draft?: boolean;
 };
 
@@ -96,7 +96,6 @@ function validate(file: string, raw: unknown): Research {
 
 export const showDrafts = process.env.NODE_ENV !== "production";
 
-/** Every entry, drafts included, newest first with completed work ahead of ongoing. */
 export function allResearch(): Research[] {
   if (!fs.existsSync(DIR)) return [];
   return fs
@@ -108,7 +107,6 @@ export function allResearch(): Research[] {
     );
 }
 
-/** Entries that appear on the site. Drafts show only in `npm run dev`. */
 export function visibleResearch(): Research[] {
   return allResearch().filter((entry) => showDrafts || !entry.draft);
 }

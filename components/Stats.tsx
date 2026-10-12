@@ -1,6 +1,5 @@
 import { meta } from "@/lib/ui";
 
-// Up to three headline numbers in a ruled row.
 export default function Stats({ items, label }: { items: { value: string; label: string }[]; label: string }) {
   return (
     <dl aria-label={label} className="grid grid-cols-1 border-t border-neutral-200 sm:grid-cols-3">

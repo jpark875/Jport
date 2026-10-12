@@ -1,6 +1,5 @@
 import { label } from "@/lib/ui";
 
-// 30/70 split: section label on the left, content on the right; stacked on small screens.
 export default function Section({
   id,
   title,

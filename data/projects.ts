@@ -6,7 +6,6 @@ export type Project = {
   tags: string[];
   tests: number;
   repo: string;
-  // Private repos show a label instead of a link that would 404.
   isPublic: boolean;
 };
 

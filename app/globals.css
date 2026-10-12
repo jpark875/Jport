@@ -7,7 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Anchored sections clear the sticky header. */
 section[id] {
   scroll-margin-top: 1rem;
 }

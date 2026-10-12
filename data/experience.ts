@@ -4,12 +4,10 @@ export type Role = {
   place?: string;
   start: string; // e.g. "Jun 2026"
   end?: string; // omit for "Present"
-  note?: string; // one line, the key result
-  // Drafts show in `npm run dev` only.
+  note?: string;
   draft?: boolean;
 };
 
-// Newest first.
 export const experience: Role[] = [
   {
     title: "Research & Policy Analyst Intern",

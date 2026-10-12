@@ -1,4 +1,3 @@
-// Site-wide details. Empty links are hidden.
 export const site = {
   name: "Jason Park",
   role: "Developer / Analytics / Economics",
