@@ -26,8 +26,7 @@ export default function Hero() {
         <h1 className="mt-6 text-[44px] font-medium leading-[1.02] tracking-[-0.035em] sm:text-[72px]">
           {site.name}
         </h1>
-        <p className="mt-6 max-w-2xl text-[19px] leading-[1.4] sm:text-[23px]">{site.pitch}</p>
-        <p className="mt-3 max-w-xl text-[15px] text-[#666666] sm:text-[17px]">{site.subtitle}</p>
+        <p className="mt-6 max-w-xl text-[17px] text-[#666666] sm:text-[19px]">{site.subtitle}</p>
         <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-1 text-[15px]">
           {contact.map((item) => (
             <li key={item.label}>

@@ -3,8 +3,6 @@ export const site = {
   role: "Developer / Analytics / Economics",
   title: "Portfolio",
   subtitle: "Economics & Computer Science, University of Virginia",
-  pitch:
-    "Applied economist who writes the estimators: causal inference, forecasting and policy cost-benefit.",
   resume: "/resume/Jason_Park_Resume.pdf",
   description: "Portfolio of Jason Park: projects, research and experience.",
   // Set NEXT_PUBLIC_SITE_URL to the deployed origin so share previews use absolute links.
