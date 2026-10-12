@@ -1,6 +1,7 @@
 import { projects } from "@/data/projects";
 import { experience } from "@/data/experience";
 import { site } from "@/data/site";
+import { asset } from "@/lib/asset";
 import { visibleResearch } from "@/lib/research";
 import { label, link, meta, pad } from "@/lib/ui";
 
@@ -15,6 +16,7 @@ export default function Hero() {
     { label: "Email", href: site.links.email ? `mailto:${site.links.email}` : "" },
     { label: "GitHub", href: site.links.github },
     { label: "LinkedIn", href: site.links.linkedin },
+    { label: "Résumé (PDF)", href: asset(site.resume), download: true },
   ].filter((item) => item.href);
 
   return (
@@ -24,11 +26,12 @@ export default function Hero() {
         <h1 className="mt-6 text-[44px] font-medium leading-[1.02] tracking-[-0.035em] sm:text-[72px]">
           {site.name}
         </h1>
-        <p className="mt-6 max-w-xl text-[17px] text-[#666666] sm:text-[19px]">{site.subtitle}</p>
+        <p className="mt-6 max-w-2xl text-[19px] leading-[1.4] sm:text-[23px]">{site.pitch}</p>
+        <p className="mt-3 max-w-xl text-[15px] text-[#666666] sm:text-[17px]">{site.subtitle}</p>
         <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-1 text-[15px]">
           {contact.map((item) => (
             <li key={item.label}>
-              <a href={item.href} className={link}>
+              <a href={item.href} className={link} download={item.download ? "" : undefined}>
                 {item.label} &rarr;
               </a>
             </li>

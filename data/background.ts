@@ -14,19 +14,26 @@ export const education = {
 };
 
 export const skills: { label: string; items: string[] }[] = [
-  { label: "Languages", items: ["Python", "SQL", "R", "Stata", "LaTeX"] },
+  { label: "Languages", items: ["Python", "TypeScript", "SQL", "R", "Stata", "LaTeX"] },
+  {
+    label: "Libraries",
+    items: ["pandas", "NumPy", "SciPy", "LightGBM", "OpenCV", "Flask", "Vite", "Vitest"],
+  },
   {
     label: "Tools",
-    items: ["pandas", "NumPy", "LightGBM", "Flask", "Excel", "Tableau", "Git", "Jupyter"],
+    items: ["Git", "GitHub Actions", "Jupyter", "Excel", "Tableau"],
   },
   {
     label: "Methods",
     items: [
-      "Econometrics",
-      "Cost-benefit analysis",
+      "Causal inference",
+      "Difference-in-differences (Callaway–Sant'Anna, Sun–Abraham, Goodman-Bacon)",
+      "Synthetic control",
+      "Bootstrap and randomization inference",
+      "Forecast evaluation",
+      "Monte Carlo cost-benefit analysis",
       "Machine learning",
       "Portfolio optimization",
-      "Risk modeling",
     ],
   },
 ];

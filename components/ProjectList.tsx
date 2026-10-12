@@ -5,14 +5,11 @@ import Tags from "./Tags";
 
 export default function ProjectList() {
   return (
-    <Section id="projects" title="Selected projects" aside={`${projects.length} repositories, newest first.`}>
+    <Section id="projects" title="Selected projects" aside={`${projects.length} repositories.`}>
       <ol className="grid gap-x-10 md:grid-cols-2">
         {projects.map((project, index) => (
           <li key={project.name} className="flex flex-col border-t border-[#111111] pb-12 pt-5">
-            <div className={`flex items-baseline justify-between ${meta}`}>
-              <span>{pad(index + 1)}</span>
-              <span>{project.year}</span>
-            </div>
+            <p className={meta}>{pad(index + 1)}</p>
             <h3 className="mt-4 text-[22px] font-medium leading-[1.25] tracking-[-0.015em]">
               {project.isPublic ? (
                 <a href={project.repo} className={link}>
@@ -35,6 +32,11 @@ export default function ProjectList() {
                 ) : (
                   <span>Private repo</span>
                 )}
+                {project.demo ? (
+                  <a href={project.demo} className={`text-[#111111] ${link}`}>
+                    Live demo &rarr;
+                  </a>
+                ) : null}
               </p>
             </div>
           </li>

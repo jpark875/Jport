@@ -1,12 +1,12 @@
 export type Project = {
   name: string;
-  year: string;
   summary: string;
   impact: string;
   tags: string[];
   tests: number;
   repo: string;
   isPublic: boolean;
+  demo?: string;
 };
 
 const github = (name: string) => `https://github.com/jpark875/${name}`;
@@ -14,7 +14,6 @@ const github = (name: string) => `https://github.com/jpark875/${name}`;
 export const projects: Project[] = [
   {
     name: "peffects",
-    year: "2026",
     summary:
       "Modern difference-in-differences from the papers: TWFE, Goodman-Bacon, Callaway–Sant'Anna, Sun–Abraham, synthetic control, wild cluster bootstrap and randomization inference.",
     impact:
@@ -26,7 +25,6 @@ export const projects: Project[] = [
   },
   {
     name: "forecast-audit",
-    year: "2026",
     summary:
       "Audits 3.1 million FiveThirtyEight forecasts for calibration, proper scores and accuracy over time, and prices what each model version was worth as a bet.",
     impact:
@@ -34,11 +32,10 @@ export const projects: Project[] = [
     tags: ["Python", "pandas", "SciPy", "Forecasting"],
     tests: 74,
     repo: github("forecast-audit"),
-    isPublic: false,
+    isPublic: true,
   },
   {
     name: "costengine",
-    year: "2026",
     summary:
       "Monte Carlo benefit-cost analysis for public programs: net value, benefit per dollar, who gains and who pays, and the chance a program pays off.",
     impact:
@@ -46,11 +43,11 @@ export const projects: Project[] = [
     tags: ["TypeScript", "Monte Carlo", "Policy analysis", "Vite"],
     tests: 34,
     repo: github("costengine"),
-    isPublic: false,
+    isPublic: true,
+    demo: "https://jpark875.github.io/costengine/",
   },
   {
     name: "FitTest",
-    year: "2026",
     summary:
       "Finds undervalued streetwear on resale platforms by reading the garment, not the seller's description, and ranks listings by margin net of fees.",
     impact: "Runs end to end offline; a vision model takes over when an API key is set.",
@@ -61,7 +58,6 @@ export const projects: Project[] = [
   },
   {
     name: "SportsBetter",
-    year: "2025",
     summary:
       "Multi-sport value-betting engine: calibrated win probabilities against live odds, with stakes sized by a correlation-aware fractional Kelly optimiser.",
     impact: "NBA, WNBA, MLB and EPL behind a one-class plugin contract; 93% test coverage.",
@@ -72,7 +68,6 @@ export const projects: Project[] = [
   },
   {
     name: "SportsTaxer",
-    year: "2026",
     summary:
       "Turns a screen recording of a sportsbook history screen into a reconciled transaction ledger exported to xlsx.",
     impact: "Refuses to call a run balanced unless opening plus every bet equals the closing balance.",
