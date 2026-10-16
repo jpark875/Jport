@@ -25,8 +25,14 @@ export default function Experience() {
                 {role.start} &ndash; {role.end ?? "Present"}
               </p>
             </div>
-            {role.note ? <p className="mt-2 max-w-2xl">{role.note}</p> : null}
-            {role.place ? <p className={`mt-2 ${meta}`}>{role.place}</p> : null}
+            {role.place ? <p className={`mt-1 ${meta}`}>{role.place}</p> : null}
+            {role.points?.length ? (
+              <ul className="mt-3 max-w-2xl list-disc space-y-1.5 pl-5 marker:text-neutral-400">
+                {role.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            ) : null}
           </li>
         ))}
       </ul>
