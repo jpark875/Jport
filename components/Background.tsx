@@ -1,4 +1,4 @@
-import { activities, education, honors, skills } from "@/data/background";
+import { activities, education, skills } from "@/data/background";
 import { label, meta } from "@/lib/ui";
 import Section from "./Section";
 import Tags from "./Tags";
@@ -20,10 +20,10 @@ export default function Background() {
       </div>
 
       <dl className="mt-10 border-t border-neutral-200">
-        {[...skills, { label: "Honors", items: honors }, { label: "Activities", items: activities }].map((group) => (
+        {[...skills, { label: "Activities", items: activities }].map((group) => (
           <div
             key={group.label}
-            className="grid gap-2 border-b border-neutral-200 py-4 last:border-b-0 sm:grid-cols-[8rem_1fr]"
+            className="grid gap-2 border-b border-neutral-200 py-4 last:border-b-0 sm:grid-cols-[10rem_1fr]"
           >
             <dt className={label}>{group.label}</dt>
             <dd>{group.items.join(", ")}</dd>

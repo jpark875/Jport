@@ -16,10 +16,9 @@ export const experience: Role[] = [
     start: "Jun 2026",
     end: "Aug 2026",
     points: [
-      "Built a de-identified panel dataset of 20+ years of child-welfare case narratives in Python, hand-coding Adverse Childhood Experiences (ACE) exposure and time-to-permanency.",
-      "Estimated Minnesota's annual cost of child-welfare inaction at $4.2 billion using CDC lifetime-cost estimates.",
-      "Conducted cost-benefit analysis of prevention spending against Washington State Institute for Public Policy (WSIPP) benefit-cost ratios; documented model assumptions in Python and Excel.",
-      "Authored a state appropriations policy paper and produced 6 short-form briefing videos for state legislators.",
+      "Quantified Minnesota's annual cost of child-welfare inaction at $4.2 billion by hand-coding ACE exposure in a de-identified 20-year case panel in Python and applying CDC lifetime-cost estimates.",
+      "Benchmarked prevention spending against WSIPP benefit-cost ratios; documented assumptions in Python and Excel.",
+      "Authored a state appropriations policy paper and 6 short-form briefing videos for Minnesota legislators.",
     ],
   },
   {
@@ -29,9 +28,8 @@ export const experience: Role[] = [
     start: "Jan 2026",
     end: "May 2026",
     points: [
-      "Co-authored an empirical study testing whether fast-food density increases preventable emergency department (ED) visits among Medicaid-eligible populations across 62 New York counties.",
-      "Merged NY SPARCS hospital, USDA Food Environment Atlas, and U.S. Census ACS data into a 372-observation county-year panel (2011–2016) in Stata using a HUD ZIP-to-county crosswalk.",
-      "Ran pooled OLS with clustered standard errors and VIF tests; income was the strongest predictor (p < 0.01).",
+      "Showed fast-food density does not robustly predict preventable ED visits once income is controlled (p = 0.24); median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
+      "Built a 372-observation county-year panel in Stata from NY SPARCS, USDA Food Atlas and Census ACS data via a HUD ZIP-to-county crosswalk; ran pooled OLS with clustered errors and VIF tests.",
     ],
   },
   {
@@ -41,8 +39,8 @@ export const experience: Role[] = [
     start: "Jun 2024",
     end: "Aug 2024",
     points: [
-      "Built Python predictive models scoring repeat-booking likelihood, raising customer engagement by 4%.",
-      "Analyzed 250,000+ booking records in Excel and BI tools; findings on cancellations shaped reminder timing.",
+      "Raised customer engagement 4% by building Python models that score each customer's repeat-booking likelihood.",
+      "Analyzed 250,000+ booking records in Excel and BI tools; cancellation findings reshaped reminder timing.",
     ],
   },
   {
@@ -50,10 +48,10 @@ export const experience: Role[] = [
     org: "Virginia Consulting Group",
     place: "Charlottesville, VA",
     start: "Sep 2023",
+    end: "Sep 2025",
     points: [
-      "Led market-sizing and competitive analysis on 3 semester-long engagements for local small businesses.",
-      "Presented recommendations to client leadership; named Featured Presenter (2024) at the client showcase.",
-      "Completed case-method consulting training delivered by Bain & Company.",
+      "Sized markets and mapped competitors for 3 small-business clients across semester-long engagements.",
+      "Named Featured Presenter (2024) at the client showcase after presenting recommendations to client leadership.",
     ],
   },
 ];

@@ -8,15 +8,12 @@ export const education = {
     "Intermediate Microeconomics",
     "Intermediate Macroeconomics",
     "Financial Markets",
-    "Business Analytics",
-    "Data Visualization",
-    "Calculus",
     "Probability & Statistics",
     "Data Structures & Algorithms",
+    "Business Analytics",
+    "Data Visualization",
   ],
 };
-
-export const honors = ["Featured Presenter, Virginia Consulting Group (2024)"];
 
 export const activities = [
   "Economics Club",
@@ -26,29 +23,31 @@ export const activities = [
 ];
 
 export const skills: { label: string; items: string[] }[] = [
-  { label: "Languages", items: ["Python", "TypeScript", "Java", "SQL", "R", "Stata", "LaTeX"] },
+  { label: "Languages", items: ["Python", "R", "Stata", "SQL", "TypeScript", "LaTeX"] },
   {
-    label: "Libraries",
-    items: ["pandas", "NumPy", "SciPy", "LightGBM", "OpenCV", "Flask", "Vite", "Vitest"],
-  },
-  {
-    label: "Tools",
-    items: ["Git", "GitHub Actions", "Jupyter", "Excel", "Tableau"],
+    label: "Libraries & Tools",
+    items: [
+      "pandas",
+      "NumPy",
+      "SciPy",
+      "LightGBM",
+      "Flask",
+      "pytest",
+      "Git",
+      "GitHub Actions",
+      "Excel",
+      "Tableau",
+      "Jupyter",
+    ],
   },
   {
     label: "Methods",
     items: [
+      "Causal inference (DiD, synthetic control)",
       "Econometrics",
-      "Regression",
-      "Causal inference",
-      "Difference-in-differences (Callaway–Sant'Anna, Sun–Abraham, Goodman-Bacon)",
-      "Synthetic control",
-      "Bootstrap and randomization inference",
-      "Forecast evaluation",
-      "Cost-benefit analysis (Monte Carlo)",
+      "Monte Carlo",
+      "Cost-benefit analysis",
       "Machine learning",
-      "Portfolio optimization",
-      "Risk modeling",
     ],
   },
 ];
