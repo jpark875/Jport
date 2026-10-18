@@ -41,6 +41,7 @@ export const experience: Role[] = [
     points: [
       "Raised customer engagement 4% by building Python models that score each customer's repeat-booking likelihood.",
       "Analyzed 250,000+ booking records in Excel and BI tools; cancellation findings reshaped reminder timing.",
+      "Improved booking closure rate with the team by tracing where users dropped off the site and fixing the bugs behind it.",
     ],
   },
   {
