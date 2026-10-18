@@ -35,7 +35,7 @@ export const experience: Role[] = [
   {
     title: "Data Analyst Intern",
     org: "Cita Reservations",
-    place: "Chicago, IL",
+    place: "New York (Remote)",
     start: "Jun 2024",
     end: "Aug 2024",
     points: [
