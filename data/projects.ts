@@ -47,6 +47,17 @@ export const projects: Project[] = [
     demo: "https://jpark875.github.io/costengine/",
   },
   {
+    name: "Sleeve",
+    summary:
+      "Desktop app for macOS and Windows that moves a music library into Spotify: songs Spotify already has go straight into a real playlist, and only the rest become tagged local files.",
+    impact:
+      "Matches by ISRC, then title, artist and length, and asks before adding close calls. Imports iTunes and M3U playlists, converts WAV, FLAC, Ogg, WMA and video with FFmpeg, and CI builds both installers.",
+    tags: ["Python", "PySide6", "Spotify Web API", "FFmpeg"],
+    tests: 146,
+    repo: github("sleeve"),
+    isPublic: true,
+  },
+  {
     name: "FitTest",
     summary:
       "Finds undervalued streetwear on resale platforms by reading the garment, not the seller's description, and ranks listings by margin net of fees.",
