@@ -17,7 +17,7 @@ export const projects: Project[] = [
     summary:
       "Modern difference-in-differences from the papers: TWFE, Goodman-Bacon, Callaway–Sant'Anna, Sun–Abraham, synthetic control, wild cluster bootstrap and randomization inference.",
     impact:
-      "Reproduces 37 of 37 published values across three replication studies. Replicates Cheng & Hoekstra's (2013) ~8% rise in homicides from stand-your-ground laws and shows it is not significant at 5% under a wild cluster bootstrap (p = 0.055).",
+      "Reproduces all 37 published values across three replication studies. Replicates Cheng & Hoekstra's (2013) finding that stand-your-ground laws raised homicides ~8%, and shows the effect loses 5% significance under wild cluster bootstrap inference (p = 0.055).",
     tags: ["Python", "NumPy", "SciPy", "Econometrics"],
     tests: 46,
     repo: github("peffects"),

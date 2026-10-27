@@ -18,7 +18,7 @@ export const experience: Role[] = [
     start: "Jun 2026",
     end: "Aug 2026",
     points: [
-      "Built the de-identified 20-year case panel behind the team's $4.2 billion estimate of Minnesota's annual cost of child-welfare inaction, hand-coding ACE exposure and time to permanency in Python.",
+      "Constructed the de-identified 20-year case panel underpinning KARA's $4.2 billion estimate of Minnesota's annual cost of child-welfare inaction, hand-coding ACE exposure and time to permanency in Python.",
       "Benchmarked prevention spending against WSIPP benefit-cost ratios; documented assumptions in Python and Excel.",
       "Authored a state appropriations policy paper and 6 short-form briefing videos for Minnesota legislators.",
     ],
@@ -31,9 +31,9 @@ export const experience: Role[] = [
     start: "Sep 2023",
     end: "Sep 2025",
     points: [
-      "Built bottom-up and top-down market-sizing models in Excel from Census and industry data for 3 small businesses.",
-      "Mapped 5–10 local competitors per client on pricing, hours, reviews, bundles and marketing channels to find gaps.",
-      "Presented 10–15-slide decks to owners; client leadership voted ours the cohort's best (Featured Presenter, 2024).",
+      "Developed bottom-up and top-down TAM models from Census and industry data to assess 3 clients' expansion plans.",
+      "Profiled 5–10 competitors per client on pricing, hours, review sentiment and channels to diagnose customer losses.",
+      "Named Featured Presenter (2024) after client leadership voted our recommendations the cohort's best presentation.",
     ],
   },
   {
@@ -44,7 +44,7 @@ export const experience: Role[] = [
     start: "Jan 2026",
     end: "May 2026",
     points: [
-      "Showed fast-food density does not robustly predict preventable ED visits once income is controlled; median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
+      "Demonstrated fast-food density does not significantly predict preventable ED visits once income is controlled; median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
       "Built a 372-observation county-year panel in Stata from NY SPARCS, USDA Food Atlas and Census ACS data via a HUD ZIP-to-county crosswalk; ran pooled OLS with clustered errors and VIF tests.",
     ],
   },
