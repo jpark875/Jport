@@ -18,7 +18,7 @@ export const education = {
 export const activities = [
   "Economics Club",
   "Student Asian Software Engineers (SASE)",
-  "TheCourseForum",
+  "TheCourseForum (frontend developer)",
   "Club Tennis",
 ];
 

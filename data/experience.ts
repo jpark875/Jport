@@ -18,7 +18,7 @@ export const experience: Role[] = [
     start: "Jun 2026",
     end: "Aug 2026",
     points: [
-      "Quantified Minnesota's annual cost of child-welfare inaction at $4.2 billion by hand-coding ACE exposure in a de-identified 20-year case panel in Python and applying CDC lifetime-cost estimates.",
+      "Built the de-identified 20-year case panel behind the team's $4.2 billion estimate of Minnesota's annual cost of child-welfare inaction, hand-coding ACE exposure and time to permanency in Python.",
       "Benchmarked prevention spending against WSIPP benefit-cost ratios; documented assumptions in Python and Excel.",
       "Authored a state appropriations policy paper and 6 short-form briefing videos for Minnesota legislators.",
     ],
@@ -31,8 +31,9 @@ export const experience: Role[] = [
     start: "Sep 2023",
     end: "Sep 2025",
     points: [
-      "Sized markets and mapped competitors for 3 small-business clients across semester-long engagements.",
-      "Named Featured Presenter (2024) at the client showcase after presenting recommendations to client leadership.",
+      "Built bottom-up and top-down market-sizing models in Excel from Census and industry data for 3 small businesses.",
+      "Mapped 5–10 local competitors per client on pricing, hours, reviews, bundles and marketing channels to find gaps.",
+      "Presented 10–15-slide decks to owners; client leadership voted ours the cohort's best (Featured Presenter, 2024).",
     ],
   },
   {
@@ -43,7 +44,7 @@ export const experience: Role[] = [
     start: "Jan 2026",
     end: "May 2026",
     points: [
-      "Showed fast-food density does not robustly predict preventable ED visits once income is controlled (p = 0.24); median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
+      "Showed fast-food density does not robustly predict preventable ED visits once income is controlled; median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
       "Built a 372-observation county-year panel in Stata from NY SPARCS, USDA Food Atlas and Census ACS data via a HUD ZIP-to-county crosswalk; ran pooled OLS with clustered errors and VIF tests.",
     ],
   },
