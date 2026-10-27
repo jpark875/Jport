@@ -33,18 +33,6 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: "Data Analyst Intern",
-    org: "Cita Marketplace",
-    place: "New York (Remote)",
-    start: "Jun 2024",
-    end: "Aug 2024",
-    points: [
-      "Raised customer engagement 4% by building Python models that score each customer's repeat-booking likelihood.",
-      "Analyzed 250,000+ booking records in Excel and BI tools; cancellation findings reshaped reminder timing.",
-      "Improved booking closure rate with the team by tracing where users dropped off the site and fixing the bugs behind it.",
-    ],
-  },
-  {
     title: "Analyst",
     org: "Virginia Consulting Group",
     place: "Charlottesville, VA",

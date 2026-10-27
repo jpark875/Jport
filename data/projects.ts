@@ -58,6 +58,17 @@ export const projects: Project[] = [
     isPublic: true,
   },
   {
+    name: "Brier",
+    summary:
+      "Phone-first trade journal and bet-sizing helper for Kalshi sports markets: logs a trade in seconds, settles it automatically and tracks daily wins and losses.",
+    impact:
+      "Paper trades fill against Kalshi's live order book with exact fees. Sizing is quarter Kelly after fees under per-trade and exposure caps, and a daily loss limit locks logging until tomorrow.",
+    tags: ["Python", "FastAPI", "SQLite", "Kalshi API"],
+    tests: 65,
+    repo: github("brier"),
+    isPublic: false,
+  },
+  {
     name: "FitTest",
     summary:
       "Finds undervalued streetwear on resale platforms by reading the garment, not the seller's description, and ranks listings by margin net of fees.",
