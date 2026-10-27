@@ -4,6 +4,7 @@ export type Role = {
   place?: string;
   start: string;
   end?: string;
+  kind: "professional" | "research";
   points?: string[];
   draft?: boolean;
 };
@@ -12,6 +13,7 @@ export const experience: Role[] = [
   {
     title: "Research & Policy Analyst Intern",
     org: "Kids at Risk Action (KARA)",
+    kind: "professional",
     place: "Minneapolis, MN",
     start: "Jun 2026",
     end: "Aug 2026",
@@ -22,25 +24,27 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: "Research Assistant",
-    org: "University of Virginia",
-    place: "Charlottesville, VA",
-    start: "Jan 2026",
-    end: "May 2026",
-    points: [
-      "Showed fast-food density does not robustly predict preventable ED visits once income is controlled (p = 0.24); median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
-      "Built a 372-observation county-year panel in Stata from NY SPARCS, USDA Food Atlas and Census ACS data via a HUD ZIP-to-county crosswalk; ran pooled OLS with clustered errors and VIF tests.",
-    ],
-  },
-  {
     title: "Analyst",
     org: "Virginia Consulting Group",
+    kind: "professional",
     place: "Charlottesville, VA",
     start: "Sep 2023",
     end: "Sep 2025",
     points: [
       "Sized markets and mapped competitors for 3 small-business clients across semester-long engagements.",
       "Named Featured Presenter (2024) at the client showcase after presenting recommendations to client leadership.",
+    ],
+  },
+  {
+    title: "Research Assistant",
+    org: "University of Virginia",
+    kind: "research",
+    place: "Charlottesville, VA",
+    start: "Jan 2026",
+    end: "May 2026",
+    points: [
+      "Showed fast-food density does not robustly predict preventable ED visits once income is controlled (p = 0.24); median household income was the strongest predictor (p = 0.004) across 62 NY counties.",
+      "Built a 372-observation county-year panel in Stata from NY SPARCS, USDA Food Atlas and Census ACS data via a HUD ZIP-to-county crosswalk; ran pooled OLS with clustered errors and VIF tests.",
     ],
   },
 ];
